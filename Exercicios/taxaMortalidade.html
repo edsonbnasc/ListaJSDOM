@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Edson Batista">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxa de Mortalidade/Natalidade</title>
+</head>
+<body>
+    
+
+    <script>
+        function calcular() {
+            const opcao = document.getElementById('opcao').value;
+            const no = document.getElementById('no').value;
+            const habitantes = parseFloat(document.getElementById('habitantes').value);
+
+ 
+
+
+    switch (opcao.toUpperCase()) {
+        case "M":
+        //a taxa de mortalidade = (números de óbitos x 1000) /número de habitantes.
+            document.getElementById('resultado').textContent = `A taxa de Mortalidade é de ${(no*1000)/habitantes}`
+           
+            break;
+             
+        case "N":
+        //A taxa de natalidade é calculada pela seguinte fórmula: taxa de natalidade = (número de crianças nascidas x 1000) / número de habitantes;
+            document.getElementById('resultado').textContent = `A taxa de Natalidade é de ${(no*1000)/habitantes}`
+            break;
+            
+        default:
+            alert('Digite as opções')
+            break;
+    }
+ 
+}
+
+function limparCampos() {
+    document.getElementById('opcao').value = '';
+    document.getElementById('habitantes').value = '';
+    document.getElementById('no').value = '';
+    document.getElementById('resultado').textContent = '';
+}
+
+    </script>
+    <h1>Taxa de Mortalidade e Taxa de Natalidade</h1>
+     
+    <h3>Digite M para Mortalidade</h3>
+    <h3>Digite N para Natalidade</h3>
+    <div>
+        <input type="text" id="opcao" name="opcao" placeholder="Digite a opção" style="width: 100px;">
+        <br><br><br>
+        <label>Numero de Habitantes:</label>
+        <input type="number" id="habitantes" name="habitantes" placeholder="Informe numero habitantes" style="width: 200px;">
+        <br>
+        <label>Numero de nascidos ou Obtos:</label>
+        <input type="number" id="no" name="no" placeholder="Informe Nascidos ou Obtos" style="width: 200px;">
+    </div>
+        <br>
+         <button onclick="calcular()">Calcular</button>
+         <button id="limpar" onclick="limparCampos()">LIMPAR</button>
+        <p id="resultado"></p>
+    
+</body>
+</html>

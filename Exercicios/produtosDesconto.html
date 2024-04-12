@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Edson Batista">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto com Desconto</title>
+</head>
+<body>
+    
+
+    <script>
+
+// - Se quantidade <= 5 o desconto será de 2%
+// - Se quantidade > 5 e quantidade <=10 o desconto será de 3%
+// - Se quantidade > 10 o desconto será de 5%
+        function calcular() {
+            // const descricao = document.getElementById('descricao').value;
+            const valor = document.getElementById('valor').value;
+            const produto = parseFloat(document.getElementById('produto').value);
+
+            
+            if (produto<=5) {
+                document.getElementById('resultado').textContent = `O valor a pagar com desconto é de R$${((valor*produto)-(((valor*produto)*2)/100))} desconto de 2%`
+    
+            } else if (produto>5 && produto<=10) {
+                document.getElementById('resultado').textContent = `O valor a pagar com desconto é de R$${((valor*produto)-(((valor*produto)*3)/100))} desconto de 3%`
+            } else if (produto>10) {
+                document.getElementById('resultado').textContent = `O valor a pagar com desconto é de R$${((valor*produto)-(((valor*produto)*5)/100))} desconto de 5%`
+            }
+            else{
+                alert('Digite as OPÇÕES')
+            }
+    
+
+    
+}
+
+function limparCampos() {
+    document.getElementById('descricao').value = '';
+    document.getElementById('produto').value = '';
+    document.getElementById('valor').value = '';
+    document.getElementById('resultado').textContent = '';
+}
+
+    </script>
+    <h1>Produto com desconto</h1>
+     
+    <div>
+        <label>Digite a descrição do produto:</label>
+        <input type="text" id="descricao" name="descricao" placeholder="Digite a descrição do produto">
+        <br><br><br>
+        <label>Quantidade de produtos:</label>
+        <input type="number" id="produto" name="produto" placeholder="Informe quantidade de produto" style="width: 200px;">
+        <br>
+        <label>Valor do produto R$:</label>
+        <input type="number" id="valor" name="valor" placeholder="Informe o preço" style="width: 200px;">
+    </div>
+        <br>
+         <button onclick="calcular()">DESCONTO</button>
+         <button id="limpar" onclick="limparCampos()">LIMPAR</button>
+        <p id="resultado"></p>
+    
+</body>
+</html>

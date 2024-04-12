@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Edson Batista">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconto de Funcionário</title>
+</head>
+<body>
+
+    <script>
+        function calcular() {
+    const cliente = parseFloat(document.getElementById('opcao').value);
+    const total = parseFloat(document.getElementById('total').value);
+    
+    switch (cliente) {
+        case 1:
+            
+            alert(`Total a pagar é de R$${total}`)
+            document.getElementById('resultado').textContent = `Total a pagar é de R$${total} Cliente Comum`
+            break;
+            
+            case 2:
+            alert(`Total a pagar é de R$${total-((total*10)/100)}`)
+            document.getElementById('resultado').textContent = `Total a pagar é de R$${total-((total*10)/100)} Funcionario`
+
+            break;
+            
+            case 3:
+            alert(`Total a pagar é de R$${total-((total*5)/100)}`)
+            document.getElementById('resultado').textContent = `Total a pagar é de R$${total-((total*5)/100)} Cliente VIP`
+            break;
+    
+        default:
+            alert('Digite as opções')
+            break;
+    }
+ 
+}
+
+function limparCampos() {
+    document.getElementById('opcao').value = '';
+    document.getElementById('total').value = '';
+    document.getElementById('resultado').textContent = '';
+}
+
+    </script>
+     <h1>Loja</h1>
+     
+     <h3>Digite 1 para Cliente Comum</h3>
+     <h3>Digite 2 para Funcionario</h3>
+     <h3>Digite 3 para Cliente VIP</h3>
+     <div>
+         <label>Valor da COMPRA:</label>
+         <input type="number" id="total" name="total" placeholder="Informe o valor total">
+         <br>
+         <input type="number" id="opcao" name="opcao" placeholder="Digite tipo de cliente">
+    </div>
+         <button onclick="calcular()">Calcular DESCONTO</button>
+         <button id="limpar" onclick="limparCampos()">LIMPAR</button>
+        <p id="resultado"></p>
+    
+</body>
+</html>

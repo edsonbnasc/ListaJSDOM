@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Edson Batista">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio Triângulo</title>
+</head>
+<body>
+    <script>
+        function analisarTriangulo() {
+    const lado1 = parseFloat(document.getElementById('lado1').value);
+    const lado2 = parseFloat(document.getElementById('lado2').value);
+    const lado3 = parseFloat(document.getElementById('lado3').value);
+
+    if (lado1 > 0 && lado2 > 0 && lado3 > 0) {
+
+            if (lado1 === lado2 && lado2 === lado3) {
+                tipoTriangulo = 'EQUILÁTERO três lados iguais';
+            } 
+            else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3) {
+                tipoTriangulo = 'ISÓSCELES dois lados iguais';
+            } 
+            else {
+                tipoTriangulo = 'ESCALENO nenhum dos lados é igual';
+            }
+
+            document.getElementById('resultado').textContent = `Os lados formam um triângulo ${tipoTriangulo}.`;
+    
+    } 
+    else {
+        alert("por favor digite valores")
+       
+    }
+}
+
+function limparCampos() {
+    document.getElementById('lado1').value = '';
+    document.getElementById('lado2').value = '';
+    document.getElementById('lado3').value = '';
+    document.getElementById('resultado').textContent = '';
+}
+
+    </script>
+     <h1>É TRIÂNGULO? QUAL É O TIPO?</h1>
+     
+         <label>LADO 1:</label>
+         <input type="number" id="lado1" name="lado1" placeholder="Informe o primeiro lado">
+         <label>LADO 2:</label>
+         <input type="number" id="lado2" name="lado2" placeholder="Informe o segundo lado">
+         <label>LADO 3:</label>
+         <input type="number" id="lado3" name="lado3" placeholder="Informe o terceiro lado">
+     
+     <button onclick="analisarTriangulo()">ANALISAR</button>
+     <button id="limpar" onclick="limparCampos()">LIMPAR</button>
+        <p id="resultado"></p>
+    
+</body>
+</html>
